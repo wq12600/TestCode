@@ -29,6 +29,9 @@ zuul:
     casin-product:
       path: /product/**
       serviceId: casin-product
+    casin-fastDFS:
+      path: /fastDFS/**
+      serviceId: casin-fastDFS
   max:
     host:
       connections: 500
