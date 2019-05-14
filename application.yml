@@ -46,7 +46,7 @@ mybatis:
 #相关eureka配置
 eureka:
   instance:
-    instance-id: casin-sso-server              #自定义服务名称信息
+    instance-id: casin-sso-server              #自定义服务名称
     prefer-ip-address: true                    #访问路径可以显示IP地址
     lease-renewal-interval-in-seconds: 10      #续约更新时间间隔（秒）
     lease-expiration-duration-in-seconds: 10   #续约到期时间（秒）
