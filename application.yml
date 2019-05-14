@@ -46,14 +46,12 @@ mybatis:
 #相关eureka配置
 eureka:
   instance:
-#    instance-id: casin-sso-server              #自定义服务名称
     prefer-ip-address: true                    #访问路径可以显示IP地址
     lease-renewal-interval-in-seconds: 10      #续约更新时间间隔（秒）
     lease-expiration-duration-in-seconds: 10   #续约到期时间（秒）
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/,http://localhost:8763/eureka/
-#      defaultZone: http://192.168.1.123:8761/eureka/,http://192.168.1.123:8762/eureka/,http://192.168.1.123:8763/eureka/
     healthcheck:
       enabled: true #健康检查
 #=======================================================================================================================
@@ -82,9 +80,9 @@ spring:
 #=======================================================================================================================
   #相关MySQL/druid配置
   datasource:
-    url: jdbc:mysql://localhost:3306/casin
+    url: jdbc:mysql://localhost:3306/casin?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false
     username: root
-    password: root
+    password: root@123456
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     dbcp2:
@@ -104,14 +102,12 @@ mybatis:
 #相关eureka配置
 eureka:
   instance:
-    instance-id: casin-sso-server-01           #自定义服务名称信息
     prefer-ip-address: true                    #访问路径可以显示IP地址
     lease-renewal-interval-in-seconds: 10      #续约更新时间间隔（秒）
     lease-expiration-duration-in-seconds: 10   #续约到期时间（秒）
   client:
     serviceUrl:
-      defaultZone: http://eureka8761.com:8761/eureka/,http://eureka8762.com:8762/eureka/,http://eureka8763.com:8763/eureka/
-#      defaultZone: http://192.168.1.123:8761/eureka/,http://192.168.1.123:8762/eureka/,http://192.168.1.123:8763/eureka/
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/,http://localhost:8763/eureka/
     healthcheck:
       enabled: true #健康检查
 #=======================================================================================================================
