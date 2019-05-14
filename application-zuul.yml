@@ -81,8 +81,8 @@ zuul:
       path: /product/**
       serviceId: casin-product
     casin-fastDFS:
-      path: /fastDFS/**
-      serviceId: casin-fastDFS
+      path: /fastdfs/**
+      serviceId: casin-fastdfs
     casin-order:
       path: /order/**
       serviceId: casin-order
