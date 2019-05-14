@@ -74,9 +74,6 @@ zuul:
     casin-sso:
       path: /sso/**
       serviceId: casin-sso
-#    casin-catalog:
-#      path: /catalog/**
-#      serviceId: casin-catalog
     casin-product:
       path: /product/**
       serviceId: casin-product
