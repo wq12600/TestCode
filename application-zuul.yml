@@ -57,3 +57,49 @@ ribbon:
 
 spring:
   profiles: test
+#=======================================================================================================================
+eureka:
+  instance:
+    instance-id: casin-zuul-server
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+#      defaultZone: http://eureka8761.com:8761/eureka/,http://eureka8762.com:8762/eureka/,http://eureka8763.com:8763/eureka/
+     defaultZone: http://192.168.1.123:8761/eureka/,http://192.168.1.123:8762/eureka/,http://192.168.1.123:8763/eureka/
+#=======================================================================================================================
+zuul:
+  ignored-services: "*" #原真实服务名不再对外暴露
+  routes:
+    casin-sso:
+      path: /sso/**
+      serviceId: casin-sso
+#    casin-catalog:
+#      path: /catalog/**
+#      serviceId: casin-catalog
+    casin-product:
+      path: /product/**
+      serviceId: casin-product
+    casin-fastDFS:
+      path: /fastDFS/**
+      serviceId: casin-fastDFS
+  max:
+    host:
+      connections: 500
+  host:
+      socket-timeout-millis: 60000
+      connect-timeout-millis: 60000
+  add-proxy-headers: true #减少HTTP requests，再次请求从本地缓存中获取
+#=======================================================================================================================
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 600000
+#=======================================================================================================================
+#ribbon的真实值=(ConnectionTimeout+ReadTimeout)*2，该值应当小于hystrix的timeoutInMilliseconds的值，如果大于其值会失去负载均衡(ribbon)的重试机会，而直接熔断
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+#=======================================================================================================================
