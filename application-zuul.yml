@@ -28,10 +28,10 @@ zuul:
     casin-product:
       path: /product/**
       serviceId: casin-product
-    casin-fastDFS:
-      path: /fastDFS/**
-      serviceId: casin-fastDFS
-    casin-fastDFS:
+    casin-fastdfs:
+      path: /fastdfs/**
+      serviceId: casin-fastdfs
+    casin-order:
       path: /order/**
       serviceId: casin-order
   max:
