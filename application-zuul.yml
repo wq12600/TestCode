@@ -77,7 +77,7 @@ zuul:
     casin-product:
       path: /product/**
       serviceId: casin-product
-    casin-fastDFS:
+    casin-fastdfs:
       path: /fastdfs/**
       serviceId: casin-fastdfs
     casin-order:
