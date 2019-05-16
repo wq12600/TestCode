@@ -62,7 +62,6 @@ spring:
 #=======================================================================================================================
 eureka:
   instance:
-    instance-id: casin-zuul-server
     prefer-ip-address: true
   client:
     serviceUrl:
