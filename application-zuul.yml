@@ -8,6 +8,20 @@ spring:
 spring:
   profiles: dev
 #=======================================================================================================================
+  #相关Redis配置
+  redis:
+    database: 5         #redis索引（默认0）
+    host: 47.105.90.107
+    port: 6380
+    password:
+    timeout: 5000
+    pool:
+      max-active: 8     #连接池最大连接数，使用负值没有限制
+      max-wait: -1      #连接池最大阻塞等待时间（使用负值表示没有限制）
+      max-idle: 8       #连接池中的最大空闲连接
+      min-idle: 0       #连接池中的最小空闲连接
+      timeout: 5000     #连接超时时间（毫秒）
+#=======================================================================================================================
 eureka:
   instance:
     prefer-ip-address: true
@@ -21,9 +35,6 @@ zuul:
     casin-sso:
       path: /sso/**
       serviceId: casin-sso
-#    casin-catalog:
-#      path: /catalog/**
-#      serviceId: casin-catalog
     casin-product:
       path: /product/**
       serviceId: casin-product
@@ -33,6 +44,26 @@ zuul:
     casin-order:
       path: /order/**
       serviceId: casin-order
+  ratelimit:
+      enabled: true
+      repository: REDIS
+      policy-list:
+        casin-sso:
+          - limit: 10
+            refresh-interval: 60
+            type:
+              - origin
+        casin-product:
+          - limit: 10
+            refresh-interval: 60
+            type:
+              - origin
+        casin-order:
+          - limit: 10
+            refresh-interval: 60
+            type:
+              - origin
+  strip-prefix: true
   max:
     host:
       connections: 500
@@ -40,7 +71,7 @@ zuul:
       socket-timeout-millis: 60000
       connect-timeout-millis: 60000
   add-proxy-headers: true #减少HTTP requests，再次请求从本地缓存中获取
-#=======================================================================================================================
+  #=======================================================================================================================
 hystrix:
   command:
     default:
@@ -54,10 +85,25 @@ ribbon:
   ReadTimeout: 60000
   ConnectTimeout: 60000
 #=======================================================================================================================
+
 ---
 
 spring:
   profiles: test
+#=======================================================================================================================
+  #相关Redis配置
+  redis:
+    database: 5         #redis索引（默认0）
+    host: 47.105.90.107
+    port: 6380
+    password:
+    timeout: 5000
+    pool:
+      max-active: 8     #连接池最大连接数，使用负值没有限制
+      max-wait: -1      #连接池最大阻塞等待时间（使用负值表示没有限制）
+      max-idle: 8       #连接池中的最大空闲连接
+      min-idle: 0       #连接池中的最小空闲连接
+      timeout: 5000     #连接超时时间（毫秒）
 #=======================================================================================================================
 eureka:
   instance:
@@ -81,32 +127,26 @@ zuul:
     casin-order:
       path: /order/**
       serviceId: casin-order
-#  ratelimit:
-#    enabled: true
-#    repository: REDIS
-#    policy-list:
-#      casin-sso:
-#        - limit: 5
-#        refresh-interval: 60
-#        type:
-#          - user
-#          - origin
-#          - url
-#      casin-product:
-#        - limit: 5
-#        refresh-interval: 60
-#        type:
-#          - user
-#          - origin
-#          - url
-#      casin-order:
-#        - limit: 5
-#        refresh-interval: 60
-#        type:
-#          - user
-#          - origin
-#          - url
-#  strip-prefix: true
+  ratelimit:
+      enabled: true
+      repository: REDIS
+      policy-list:
+        casin-sso:
+          - limit: 10
+            refresh-interval: 60
+            type:
+              - origin
+        casin-product:
+          - limit: 10
+            refresh-interval: 60
+            type:
+              - origin
+        casin-order:
+          - limit: 10
+            refresh-interval: 60
+            type:
+              - origin
+  strip-prefix: true
   max:
     host:
       connections: 500
