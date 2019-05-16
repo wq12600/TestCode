@@ -81,32 +81,32 @@ zuul:
     casin-order:
       path: /order/**
       serviceId: casin-order
-  ratelimit:
-    enabled: true
-    repository: REDIS
-    policy-list:
-      casin-sso:
-        - limit: 5
-        refresh-interval: 60
-        type:
-          - user
-          - origin
-          - url
-      casin-product:
-        - limit: 5
-        refresh-interval: 60
-        type:
-          - user
-          - origin
-          - url
-      casin-order:
-        - limit: 5
-        refresh-interval: 60
-        type:
-          - user
-          - origin
-          - url
-  strip-prefix: true
+#  ratelimit:
+#    enabled: true
+#    repository: REDIS
+#    policy-list:
+#      casin-sso:
+#        - limit: 5
+#        refresh-interval: 60
+#        type:
+#          - user
+#          - origin
+#          - url
+#      casin-product:
+#        - limit: 5
+#        refresh-interval: 60
+#        type:
+#          - user
+#          - origin
+#          - url
+#      casin-order:
+#        - limit: 5
+#        refresh-interval: 60
+#        type:
+#          - user
+#          - origin
+#          - url
+#  strip-prefix: true
   max:
     host:
       connections: 500
