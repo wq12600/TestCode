@@ -49,17 +49,17 @@ zuul:
       repository: REDIS
       policy-list:
         casin-sso:
-          - limit: 10
+          - limit: 30
             refresh-interval: 60
             type:
               - origin
         casin-product:
-          - limit: 10
+          - limit: 30
             refresh-interval: 60
             type:
               - origin
         casin-order:
-          - limit: 10
+          - limit: 30
             refresh-interval: 60
             type:
               - origin
@@ -132,17 +132,17 @@ zuul:
       repository: REDIS
       policy-list:
         casin-sso:
-          - limit: 10
+          - limit: 30
             refresh-interval: 60
             type:
               - origin
         casin-product:
-          - limit: 10
+          - limit: 30
             refresh-interval: 60
             type:
               - origin
         casin-order:
-          - limit: 10
+          - limit: 30
             refresh-interval: 60
             type:
               - origin
