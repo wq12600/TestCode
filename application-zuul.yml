@@ -127,6 +127,9 @@ zuul:
     casin-order:
       path: /order/**
       serviceId: casin-order
+    casin-cart:
+      path: /cart/**
+      serviceId: casin-cart
   ratelimit:
       enabled: true
       repository: REDIS
@@ -142,6 +145,11 @@ zuul:
             type:
               - origin
         casin-order:
+          - limit: 30
+            refresh-interval: 60
+            type:
+              - origin
+        casin-cart:
           - limit: 30
             refresh-interval: 60
             type:
