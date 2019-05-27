@@ -47,6 +47,9 @@ zuul:
     casin-cart:
       path: /cart/**
       serviceId: casin-cart
+    casin-logistics:
+      path: /logistics/**
+      serviceId: casin-logistics
   ratelimit:
       enabled: true
       repository: REDIS
@@ -67,6 +70,11 @@ zuul:
             type:
               - origin
         casin-cart:
+          - limit: 30
+            refresh-interval: 60
+            type:
+              - origin
+        casin-logistics:
           - limit: 30
             refresh-interval: 60
             type:
@@ -138,6 +146,9 @@ zuul:
     casin-cart:
       path: /cart/**
       serviceId: casin-cart
+    casin-logistics:
+      path: /logistics/**
+      serviceId: casin-logistics
   ratelimit:
       enabled: true
       repository: REDIS
@@ -158,6 +169,11 @@ zuul:
             type:
               - origin
         casin-cart:
+          - limit: 30
+            refresh-interval: 60
+            type:
+              - origin
+        casin-logistics:
           - limit: 30
             refresh-interval: 60
             type:
