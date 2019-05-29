@@ -50,32 +50,40 @@ zuul:
     casin-logistics:
       path: /logistics/**
       serviceId: casin-logistics
+    casin-payment:
+      path: /payment/**
+      serviceId: casin-payment
   ratelimit:
       enabled: true
       repository: REDIS
       policy-list:
         casin-sso:
-          - limit: 30
+          - limit: 50
             refresh-interval: 60
             type:
               - origin
         casin-product:
-          - limit: 30
+          - limit: 50
             refresh-interval: 60
             type:
               - origin
         casin-order:
-          - limit: 30
+          - limit: 50
             refresh-interval: 60
             type:
               - origin
         casin-cart:
-          - limit: 30
+          - limit: 50
             refresh-interval: 60
             type:
               - origin
         casin-logistics:
-          - limit: 30
+          - limit: 50
+            refresh-interval: 60
+            type:
+              - origin
+        casin-payment:
+          - limit: 50
             refresh-interval: 60
             type:
               - origin
@@ -149,32 +157,40 @@ zuul:
     casin-logistics:
       path: /logistics/**
       serviceId: casin-logistics
+    casin-payment:
+      path: /payment/**
+      serviceId: casin-payment
   ratelimit:
       enabled: true
       repository: REDIS
       policy-list:
         casin-sso:
-          - limit: 30
+          - limit: 50
             refresh-interval: 60
             type:
               - origin
         casin-product:
-          - limit: 30
+          - limit: 50
             refresh-interval: 60
             type:
               - origin
         casin-order:
-          - limit: 30
+          - limit: 50
             refresh-interval: 60
             type:
               - origin
         casin-cart:
-          - limit: 30
+          - limit: 50
             refresh-interval: 60
             type:
               - origin
         casin-logistics:
-          - limit: 30
+          - limit: 50
+            refresh-interval: 60
+            type:
+              - origin
+        casin-payment:
+          - limit: 50
             refresh-interval: 60
             type:
               - origin
