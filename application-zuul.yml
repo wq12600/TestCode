@@ -118,9 +118,9 @@ spring:
   #相关Redis配置
   redis:
     database: 5         #redis索引（默认0）
-    host: 47.105.90.107
+    host: 192.168.1.178
     port: 6380
-    password:
+    password: 123456
     timeout: 5000
     pool:
       max-active: 8     #连接池最大连接数，使用负值没有限制
