@@ -140,7 +140,7 @@ eureka:
     prefer-ip-address: true
   client:
     serviceUrl:
-     defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/,http://localhost:8763/eureka/
+     defaultZone: http://192.168.1.123:8761/eureka/,http://192.168.1.123:8762/eureka/,http://192.168.1.123:8763/eureka/
 #=======================================================================================================================
 zuul:
   ignored-services: "*" #原真实服务名不再对外暴露

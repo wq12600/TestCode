@@ -86,9 +86,9 @@ spring:
 #=======================================================================================================================
   #相关MySQL/druid配置
   datasource:
-    url: jdbc:mysql://localhost:3306/casin?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false
+    url: jdbc:mysql://192.168.1.123:3306/casin?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false
     username: root
-    password: 
+    password: root@123456
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     dbcp2:
@@ -113,7 +113,7 @@ eureka:
     lease-expiration-duration-in-seconds: 10   #续约到期时间（秒）
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/,http://localhost:8763/eureka/
+      defaultZone: http://192.168.1.123:8761/eureka/,http://192.168.1.123:8762/eureka/,http://192.168.1.123:8763/eureka/
     healthcheck:
       enabled: true #健康检查
 #=======================================================================================================================
