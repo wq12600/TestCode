@@ -73,7 +73,13 @@ logging:
         models:
           parameters:
             AbstractSerializableParameter: ERROR
-
+#=======================================================================================================================
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+        
 ---
 
 spring:
@@ -147,5 +153,11 @@ logging:
         models:
           parameters:
             AbstractSerializableParameter: ERROR
+#=======================================================================================================================
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
  
 
