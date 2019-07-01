@@ -26,5 +26,12 @@ eureka:
     healthcheck:
       enabled: true #健康检查
 #=======================================================================================================================
+logging:
+  level:
+    io:
+      swagger:
+        models:
+          parameters:
+            AbstractSerializableParameter: ERROR
 
 
