@@ -68,37 +68,37 @@ zuul:
       repository: REDIS
       policy-list:
         casin-sso:
-          - limit: 50
+          - limit: 60
             refresh-interval: 60
             type:
               - origin
         casin-product:
-          - limit: 50
+          - limit: 60
             refresh-interval: 60
             type:
               - origin
         casin-order:
-          - limit: 50
+          - limit: 60
             refresh-interval: 60
             type:
               - origin
         casin-cart:
-          - limit: 50
+          - limit: 60
             refresh-interval: 60
             type:
               - origin
         casin-logistics:
-          - limit: 50
+          - limit: 60
             refresh-interval: 60
             type:
               - origin
         casin-payment:
-          - limit: 50
+          - limit: 60
             refresh-interval: 60
             type:
               - origin
         casin-settle:
-          - limit: 50
+          - limit: 60
             refresh-interval: 60
             type:
               - origin
