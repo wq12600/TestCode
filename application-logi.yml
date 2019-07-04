@@ -12,7 +12,7 @@ spring:
     sampler:
       percentage: 1
   zipkin:
-    base-url: http://localhost:9411
+    base-url: http://192.168.1.183:9411
 #=======================================================================================================================
 #相关eureka配置
 eureka:
@@ -22,7 +22,7 @@ eureka:
     lease-expiration-duration-in-seconds: 10   #续约到期时间（秒）
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/,http://localhost:8763/eureka/
+      defaultZone: http://192.168.1.183:8761/eureka/,http://192.168.1.184:8761/eureka/,http://192.168.1.185:8761/eureka/
     healthcheck:
       enabled: true #健康检查
 #=======================================================================================================================

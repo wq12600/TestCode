@@ -132,17 +132,17 @@ spring:
 #=======================================================================================================================
   #相关Redis配置
   redis:
-    database: 1         #redis索引（默认0）
+    database: 0         #redis索引（默认0）
     cluster:
       nodes: 
         - 192.168.1.183:6379
-        - 192.168.1.183:6380
         - 192.168.1.184:6379
-        - 192.168.1.184:6380
         - 192.168.1.185:6379
-        - 192.168.1.185:6380
     password:
     timeout: 5000
+    sentinel:
+      master: mymaster
+      nodes: 192.168.1.183:26379,192.168.1.184:26379,192.168.1.185:26379
     lettuce:
       pool:
         max-active: 8     #连接池最大连接数，使用负值没有限制
@@ -156,7 +156,7 @@ eureka:
     prefer-ip-address: true
   client:
     serviceUrl:
-     defaultZone: http://192.168.1.123:8761/eureka/,http://192.168.1.123:8762/eureka/,http://192.168.1.123:8763/eureka/
+      defaultZone: http://192.168.1.183:8761/eureka/,http://192.168.1.184:8761/eureka/,http://192.168.1.185:8761/eureka/
 #=======================================================================================================================
 zuul:
   ignored-services: "*" #原真实服务名不再对外暴露
@@ -190,37 +190,37 @@ zuul:
       repository: REDIS
       policy-list:
         casin-sso:
-          - limit: 50
+          - limit: 60
             refresh-interval: 60
             type:
               - origin
         casin-product:
-          - limit: 50
+          - limit: 60
             refresh-interval: 60
             type:
               - origin
         casin-order:
-          - limit: 50
+          - limit: 60
             refresh-interval: 60
             type:
               - origin
         casin-cart:
-          - limit: 50
+          - limit: 60
             refresh-interval: 60
             type:
               - origin
         casin-logistics:
-          - limit: 50
+          - limit: 60
             refresh-interval: 60
             type:
               - origin
         casin-payment:
-          - limit: 50
+          - limit: 60
             refresh-interval: 60
             type:
               - origin
         casin-settle:
-          - limit: 50
+          - limit: 60
             refresh-interval: 60
             type:
               - origin
