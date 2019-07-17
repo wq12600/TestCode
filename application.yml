@@ -37,7 +37,7 @@ spring:
 #=======================================================================================================================
   #相关MySQL/druid配置
   datasource:
-    url: jdbc:mysql://192.168.1.123:3306/casin?characterEncoding=utf8&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://192.168.1.123:3306/casin123?characterEncoding=utf8&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: root@123456
     driver-class-name: com.mysql.cj.jdbc.Driver
