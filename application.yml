@@ -8,6 +8,28 @@
 spring:
   profiles: dev
 #=======================================================================================================================
+  kafka:
+    bootstrap-servers: 192.168.1.164:9092,192.168.1.165:9092,192.168.1.166:9092
+    producer:
+      retries: 0
+      batch-size: 16384
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        linger.ms: 1
+    
+    consumer:
+      group-id: 0
+      auto-offset-reset: earliest
+      enable-auto-commit: true
+      auto-commit-interval: 100ms
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        session.timeout.ms: 15000
+      properties.max.partition.fetch.bytes: 2097152
+#=======================================================================================================================
   #相关Redis配置
   redis:
     database: 0         #redis索引（默认0）
