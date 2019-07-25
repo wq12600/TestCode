@@ -37,7 +37,7 @@ spring:
 #=======================================================================================================================
   #相关MySQL/druid配置
   datasource:
-    url: jdbc:mysql://192.168.1.123:3306/casin123?characterEncoding=utf8&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://192.168.1.123:3306/casin?characterEncoding=utf8&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: root@123456
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -143,8 +143,8 @@ mybatis:
 eureka:
   instance:
     prefer-ip-address: true                    #访问路径可以显示IP地址
-    lease-renewal-interval-in-seconds: 10      #续约更新时间间隔（秒）
-    lease-expiration-duration-in-seconds: 10   #续约到期时间（秒）
+    lease-renewal-interval-in-seconds: 1       #续约更新时间间隔（秒）
+    lease-expiration-duration-in-seconds: 2    #续约到期时间（秒）
   client:
     serviceUrl:
       defaultZone: http://192.168.1.164:8761/eureka/,http://192.168.1.165:8762/eureka/,http://192.168.1.166:8763/eureka/
