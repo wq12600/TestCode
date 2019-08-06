@@ -63,6 +63,9 @@ zuul:
     casin-settle:
       path: /settle/**
       serviceId: casin-settle
+    casin-search:
+      path: /search/**
+      serviceId: casin-search
   ratelimit:
       enabled: true
       repository: REDIS
@@ -98,6 +101,11 @@ zuul:
             type:
               - origin
         casin-settle:
+          - limit: 60
+            refresh-interval: 60
+            type:
+              - origin
+        casin-search:
           - limit: 60
             refresh-interval: 60
             type:
@@ -185,6 +193,9 @@ zuul:
     casin-settle:
       path: /settle/**
       serviceId: casin-settle
+    casin-search:
+      path: /search/**
+      serviceId: casin-search
   ratelimit:
       enabled: true
       repository: REDIS
@@ -220,6 +231,11 @@ zuul:
             type:
               - origin
         casin-settle:
+          - limit: 10000000
+            refresh-interval: 60
+            type:
+              - origin
+        casin-search:
           - limit: 10000000
             refresh-interval: 60
             type:
