@@ -35,6 +35,27 @@ spring:
   zipkin:
     base-url: http://192.168.1.166:9411
 #=======================================================================================================================
+#相关MySQL/druid配置
+datasource:
+  url: jdbc:mysql://192.168.1.123:3306/casin?characterEncoding=utf8&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai
+  username: root
+  password: root@123456
+  driver-class-name: com.mysql.cj.jdbc.Driver
+  type: com.alibaba.druid.pool.DruidDataSource
+  dbcp2:
+    min-idle: 5
+    initial-size: 5
+    max-total: 5
+    max-wait-millis: 5
+#=======================================================================================================================
+#相关mybatis配置
+mybatis:
+  mapperLocations: classpath:/mapper/**/*Mapper.xml
+  type-aliases-package: com.casin.model
+  #开启二级缓存
+  configuration:
+    cache-enabled: true
+#======================================================================================================================= 
 #相关eureka配置
 eureka:
   instance:
